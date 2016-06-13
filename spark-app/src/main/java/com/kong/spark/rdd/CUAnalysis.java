@@ -117,11 +117,17 @@ public class CUAnalysis {
         
         user.foreach(new VoidFunction<Tuple2<String, Integer>>() {
             public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
-                System.out.println(stringIntegerTuple2);
+                System.out.println("用户记录数："+stringIntegerTuple2);
             }
         });
-        
-        
+
+        System.out.println("总用户数："+userCount+";总记录数："+count);
+
+        userAvgTime.foreach(new VoidFunction<Tuple2<String, Long>>() {
+            public void call(Tuple2<String, Long> stringLongTuple2) throws Exception {
+                System.out.println("用户平均时间间隔："+stringLongTuple2);
+            }
+        });
 
         jsc.stop();
     }

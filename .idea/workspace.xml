@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="406e3812-5881-4e34-a01a-8ba3a8c9610b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/other/src/test/java/Test.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/src/main/java/com/kong/jvm/HelloConstantOutOfMemory.java" afterPath="$PROJECT_DIR$/other/src/main/java/com/kong/jvm/HelloConstantOutOfMemory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" afterPath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/src/main/scala/com/kong/spark/rdd/CUDataAnalysis.scala" afterPath="$PROJECT_DIR$/spark-app/src/main/scala/com/kong/spark/rdd/CUDataAnalysis.scala" />
     </list>
     <ignored path="spark-mvn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +33,14 @@
       <file leaf-file-name="CUAnalysis.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="1256">
+              <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#847#2023#0" expanded="true" />
                 <element signature="e#2022#2023#0" expanded="true" />
+                <element signature="e#2564#2761#0" expanded="true" />
+                <element signature="e#2760#2761#0" expanded="true" />
                 <element signature="e#2819#3077#0" expanded="true" />
                 <element signature="e#3076#3077#0" expanded="true" />
                 <element signature="e#3096#3304#0" expanded="true" />
@@ -49,8 +49,12 @@
                 <element signature="e#3894#3895#0" expanded="true" />
                 <element signature="e#3919#4193#0" expanded="true" />
                 <element signature="e#4192#4193#0" expanded="true" />
-                <element signature="e#5268#5487#0" expanded="true" />
-                <element signature="e#5486#5487#0" expanded="true" />
+                <element signature="e#4298#5235#0" expanded="true" />
+                <element signature="e#5234#5235#0" expanded="true" />
+                <element signature="e#5268#5496#0" expanded="true" />
+                <element signature="e#5495#5496#0" expanded="true" />
+                <element signature="e#5591#5810#0" expanded="true" />
+                <element signature="e#5809#5810#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,8 +160,8 @@
         <option value="$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/UserAverageTime.java" />
         <option value="$PROJECT_DIR$/other/src/main/java/com/kong/jvm/HelloConstantOutOfMemory.java" />
         <option value="$PROJECT_DIR$/other/src/test/java/Test.java" />
-        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" />
         <option value="$PROJECT_DIR$/spark-app/src/main/scala/com/kong/spark/rdd/CUDataAnalysis.scala" />
+        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" />
       </list>
     </option>
   </component>
@@ -861,7 +865,7 @@
       <workItem from="1465368579887" duration="1313000" />
       <workItem from="1465694085843" duration="11812000" />
       <workItem from="1465712503241" duration="9552000" />
-      <workItem from="1465780677129" duration="7472000" />
+      <workItem from="1465780677129" duration="7835000" />
     </task>
     <task id="LOCAL-00001" summary="信令数据基础分析">
       <created>1465713799904</created>
@@ -891,11 +895,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465786414701</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修正一下程序">
+      <created>1465788929610</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1465788929610</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83793000" />
+    <option name="totallyTimeSpent" value="84156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="205" y="0" width="1774" height="1040" extended-state="0" />
@@ -946,7 +957,8 @@
     <MESSAGE value="信令数据使用sql分析" />
     <MESSAGE value="信令数据scala版本" />
     <MESSAGE value="信令数据mapreduce版" />
-    <option name="LAST_COMMIT_MESSAGE" value="信令数据mapreduce版" />
+    <MESSAGE value="修正一下程序" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正一下程序" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1330,11 +1342,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="1256">
+          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#847#2023#0" expanded="true" />
             <element signature="e#2022#2023#0" expanded="true" />
+            <element signature="e#2564#2761#0" expanded="true" />
+            <element signature="e#2760#2761#0" expanded="true" />
             <element signature="e#2819#3077#0" expanded="true" />
             <element signature="e#3076#3077#0" expanded="true" />
             <element signature="e#3096#3304#0" expanded="true" />
@@ -1343,8 +1358,12 @@
             <element signature="e#3894#3895#0" expanded="true" />
             <element signature="e#3919#4193#0" expanded="true" />
             <element signature="e#4192#4193#0" expanded="true" />
-            <element signature="e#5268#5487#0" expanded="true" />
-            <element signature="e#5486#5487#0" expanded="true" />
+            <element signature="e#4298#5235#0" expanded="true" />
+            <element signature="e#5234#5235#0" expanded="true" />
+            <element signature="e#5268#5496#0" expanded="true" />
+            <element signature="e#5495#5496#0" expanded="true" />
+            <element signature="e#5591#5810#0" expanded="true" />
+            <element signature="e#5809#5810#0" expanded="true" />
           </folding>
         </state>
       </provider>
