@@ -7,8 +7,6 @@ import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.PairFunction;
 import scala.Tuple2;
 
-import java.util.function.Consumer;
-
 /**
  * Created by kong on 2016/4/23.
  */
@@ -26,10 +24,6 @@ public class TopN {
             public Integer call(Tuple2<Integer, Integer> integerIntegerTuple2) throws Exception {
                 return integerIntegerTuple2._2;
             }
-        }).take(5).forEach(new Consumer<Integer>() {
-            public void accept(Integer integer) {
-                System.out.println(integer);
-            }
-        });
+        }).take(5);
     }
 }

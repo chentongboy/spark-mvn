@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="406e3812-5881-4e34-a01a-8ba3a8c9610b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="406e3812-5881-4e34-a01a-8ba3a8c9610b" name="Default" comment="........">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hadoop-app/hadoop-app.iml" afterPath="$PROJECT_DIR$/hadoop-app/hadoop-app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hive/hive.iml" afterPath="$PROJECT_DIR$/hive/hive.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/other.iml" afterPath="$PROJECT_DIR$/other/other.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/redis/redis.iml" afterPath="$PROJECT_DIR$/redis/redis.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/spark-app.iml" afterPath="$PROJECT_DIR$/spark-app/spark-app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/streaming/SparkStreamingKafkaReceiver.java" afterPath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/streaming/SparkStreamingKafkaReceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" afterPath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopN.java" afterPath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopN.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopNGroup.java" afterPath="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopNGroup.java" />
     </list>
     <ignored path="spark-mvn.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +35,20 @@
       <file leaf-file-name="CUAnalysis.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+            <state relative-caret-position="635">
+              <caret line="181" column="12" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5425#5709#0" expanded="true" />
+                <element signature="e#5708#5709#0" expanded="true" />
+                <element signature="e#5723#5895#0" expanded="true" />
+                <element signature="e#5894#5895#0" expanded="true" />
+                <element signature="e#5907#6276#0" expanded="true" />
+                <element signature="e#6275#6276#0" expanded="true" />
+                <element signature="e#6301#7714#0" expanded="true" />
+                <element signature="e#7713#7714#0" expanded="true" />
+                <element signature="e#8538#8546#0" expanded="true" />
+                <element signature="e#8884#8885#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,28 +61,6 @@
               <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding>
                 <element signature="e#28#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spark-app/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2601">
-              <caret line="153" column="29" selection-start-line="153" selection-start-column="29" selection-end-line="153" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopNSorted.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/TopNSorted.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -130,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/Average.java" />
         <option value="$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/bean/WorkerInfo.java" />
         <option value="$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/JoinWorkerInformation.java" />
         <option value="$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/bean/MemberKey.java" />
@@ -171,7 +154,6 @@
         <option value="$PROJECT_DIR$/hive/src/main/java/com/kong/hive/HiveUtil.java" />
         <option value="$PROJECT_DIR$/hive/src/main/java/com/kong/hive/HiveConnection.java" />
         <option value="$PROJECT_DIR$/hive/src/main/java/com/kong/hive/exeHiveQL.java" />
-        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopN.java" />
         <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/sql/RDD2DataFrameByProgrammatically.java" />
         <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/sql/CUAnalysisOfDF.java" />
         <option value="$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/UserAverageTime.java" />
@@ -179,8 +161,10 @@
         <option value="$PROJECT_DIR$/other/src/test/java/Test.java" />
         <option value="$PROJECT_DIR$/spark-app/src/main/scala/com/kong/spark/rdd/CUDataAnalysis.scala" />
         <option value="$PROJECT_DIR$/spark-app/pom.xml" />
-        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" />
         <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/streaming/SparkStreamingKafkaReceiver.java" />
+        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopN.java" />
+        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopNGroup.java" />
+        <option value="$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java" />
       </list>
     </option>
   </component>
@@ -198,43 +182,13 @@
     </option>
   </component>
   <component name="MavenProjectNavigator">
-    <treeState>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="spark" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="spark" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-      </PATH>
-    </treeState>
+    <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="104" />
+    <option name="x" value="-58" />
+    <option name="y" value="38" />
     <option name="width" value="1774" />
-    <option name="height" value="1040" />
+    <option name="height" value="1068" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1028,7 +982,7 @@
       <workItem from="1465694085843" duration="11812000" />
       <workItem from="1465712503241" duration="9552000" />
       <workItem from="1465780677129" duration="12125000" />
-      <workItem from="1465804094170" duration="2232000" />
+      <workItem from="1465804094170" duration="4940000" />
     </task>
     <task id="LOCAL-00001" summary="信令数据基础分析">
       <created>1465713799904</created>
@@ -1079,14 +1033,21 @@
       <option name="project" value="LOCAL" />
       <updated>1465789750029</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="........">
+      <created>1465807307105</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1465807307105</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90678000" />
+    <option name="totallyTimeSpent" value="93386000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="104" y="0" width="1774" height="1040" extended-state="0" />
+    <frame x="-58" y="38" width="1774" height="1068" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1095,7 +1056,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17677946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17677946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47970086" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1136,7 +1097,8 @@
     <MESSAGE value="信令数据mapreduce版" />
     <MESSAGE value="修正一下程序" />
     <MESSAGE value="修正一下程序pom文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正一下程序pom文件" />
+    <MESSAGE value="........" />
+    <option name="LAST_COMMIT_MESSAGE" value="........" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1304,24 +1266,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopNGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="32" column="70" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopN.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1423,16 +1371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/TopNSorted.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/UserAverageTime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="803">
@@ -1482,14 +1420,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="40" column="123" selection-start-line="40" selection-start-column="123" selection-end-line="40" selection-end-column="123" />
+          <folding>
+            <element signature="e#1053#1070#0" expanded="false" />
+            <element signature="e#1324#1554#0" expanded="false" />
+            <element signature="e#1553#1554#0" expanded="false" />
+            <element signature="e#1631#1835#0" expanded="false" />
+            <element signature="e#1834#1835#0" expanded="false" />
+            <element signature="e#2114#2115#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/spark-app/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2601">
+        <state relative-caret-position="411">
           <caret line="153" column="29" selection-start-line="153" selection-start-column="29" selection-end-line="153" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hadoop-app/src/main/java/com/kong/hadoop/TopNSorted.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/TopNGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding>
+            <element signature="e#823#1111#0" expanded="true" />
+            <element signature="e#1110#1111#0" expanded="true" />
+            <element signature="e#1272#2433#0" expanded="true" />
+            <element signature="e#2432#2433#0" expanded="true" />
+            <element signature="e#2455#2997#0" expanded="true" />
+            <element signature="e#2996#2997#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1505,10 +1484,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spark-app/src/main/java/com/kong/spark/rdd/CUAnalysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+        <state relative-caret-position="635">
+          <caret line="181" column="12" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5425#5709#0" expanded="true" />
+            <element signature="e#5708#5709#0" expanded="true" />
+            <element signature="e#5723#5895#0" expanded="true" />
+            <element signature="e#5894#5895#0" expanded="true" />
+            <element signature="e#5907#6276#0" expanded="true" />
+            <element signature="e#6275#6276#0" expanded="true" />
+            <element signature="e#6301#7714#0" expanded="true" />
+            <element signature="e#7713#7714#0" expanded="true" />
+            <element signature="e#8538#8546#0" expanded="true" />
+            <element signature="e#8884#8885#0" expanded="true" />
           </folding>
         </state>
       </provider>

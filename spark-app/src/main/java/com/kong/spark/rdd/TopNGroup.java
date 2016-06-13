@@ -22,7 +22,6 @@ public class TopNGroup {
         JavaSparkContext sc = new JavaSparkContext(conf);
         final JavaRDD<String> lines = sc.textFile("D:/topNGroup.txt");
         JavaPairRDD<String, Integer> pairs = lines.mapToPair(new PairFunction<String, String, Integer>() {
-            @Override
             public Tuple2<String, Integer> call(String s) throws Exception {
                 String[] splited = s.split(" ");
                 return new Tuple2<String, Integer>(splited[0], Integer.valueOf(splited[1]));
@@ -31,7 +30,6 @@ public class TopNGroup {
 
         JavaPairRDD<String, Iterable<Integer>> iterable = pairs.groupByKey();//对数据进行分组
         JavaPairRDD<String, Iterable<Integer>> p = iterable.mapToPair(new PairFunction<Tuple2<String, Iterable<Integer>>, String, Iterable<Integer>>() {
-            @Override
             public Tuple2<String, Iterable<Integer>> call(Tuple2<String, Iterable<Integer>> groupedData) throws Exception {
                 Integer[] top5 = new Integer[5];//保存Top5的数据本身
                 String groupedKey = groupedData._1();
@@ -56,7 +54,6 @@ public class TopNGroup {
         });
 
         p.foreach(new VoidFunction<Tuple2<String, Iterable<Integer>>>() {
-            @Override
             public void call(Tuple2<String, Iterable<Integer>> topped) throws Exception {
                 System.out.println(topped._1());
                 Iterator<Integer> toppedValue = topped._2().iterator();

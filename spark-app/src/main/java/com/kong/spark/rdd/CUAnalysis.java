@@ -11,7 +11,10 @@ import org.apache.spark.api.java.function.VoidFunction;
 import scala.Tuple2;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * 联通信令数据基础分析
@@ -115,6 +118,51 @@ public class CUAnalysis {
                 return new Tuple2<String, Long>(stringIterableTuple2._1, avg);
             }
         });
+
+        //每个用户出现经纬度的Top2
+        JavaPairRDD<String, Iterable<String>> userTop2 = map.mapToPair(new PairFunction<String, String, Long>() {
+            public Tuple2<String, Long> call(String s) throws Exception {
+                String[] split = s.split(",");
+                return new Tuple2<String, Long>(split[0] + "," + split[3] + "," + split[4], 1L);
+            }
+        }).reduceByKey(new Function2<Long, Long, Long>() {
+
+            public Long call(Long aLong, Long aLong2) throws Exception {
+                return aLong + aLong2;
+            }
+        }).mapToPair(new PairFunction<Tuple2<String, Long>, String, String>() {
+
+            public Tuple2<String, String> call(Tuple2<String, Long> stringLongTuple2) throws Exception {
+                String[] split = stringLongTuple2._1.split(",");
+                return new Tuple2<String, String>(split[0], split[1] + "," + split[2] + "," + stringLongTuple2._2);
+            }
+        }).groupByKey().mapToPair(new PairFunction<Tuple2<String, Iterable<String>>, String, Iterable<String>>() {
+
+            public Tuple2<String, Iterable<String>> call(Tuple2<String, Iterable<String>> stringIterableTuple2) throws Exception {
+                Iterator<String> iterator = stringIterableTuple2._2.iterator();
+                String[] top2 = new String[2];
+                Long[] topLong = new Long[2];
+                while (iterator.hasNext()) {
+                    String[] next = iterator.next().split(",");
+                    for (int i = 0; i < 2; i++) {
+                        if (top2[i] == null) {
+                            top2[i] = next[0] + "," + next[1]+","+next[2];
+                            topLong[i] = Long.valueOf(next[2]);
+                            break;
+                        } else if (Long.valueOf(next[2]) > topLong[i]) {
+                            for (int j = 1; j > i; j--) {
+                                top2[j] = top2[j - 1];
+                                topLong[j] = topLong[j - 1];
+                            }
+                            top2[i] = next[0] + "," + next[1]+","+next[2];
+                            topLong[i] = Long.valueOf(next[2]);
+                            break;
+                        }
+                    }
+                }
+                return new Tuple2<String, Iterable<String>>(stringIterableTuple2._1, Arrays.asList(top2));
+            }
+        });
         
         user.foreach(new VoidFunction<Tuple2<String, Integer>>() {
             public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
@@ -127,6 +175,19 @@ public class CUAnalysis {
         userAvgTime.foreach(new VoidFunction<Tuple2<String, Long>>() {
             public void call(Tuple2<String, Long> stringLongTuple2) throws Exception {
                 System.out.println("用户平均时间间隔："+stringLongTuple2);
+            }
+        });
+
+        userTop2.foreach(new VoidFunction<Tuple2<String, Iterable<String>>>() {
+
+            public void call(Tuple2<String, Iterable<String>> stringIterableTuple2) throws Exception {
+                List<String> list = new ArrayList<String>();
+                Iterator<String> iterator = stringIterableTuple2._2.iterator();
+                while (iterator.hasNext()){
+                    String next = iterator.next();
+                    list.add(next);
+                }
+                System.out.println("用户："+stringIterableTuple2._1+","+"经纬度："+list);
             }
         });
 
