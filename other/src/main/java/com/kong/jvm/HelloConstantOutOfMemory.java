@@ -25,7 +25,7 @@ public class HelloConstantOutOfMemory {
 
             e.printStackTrace();
 
-            throw e;
+            //throw e;
 
         }
 

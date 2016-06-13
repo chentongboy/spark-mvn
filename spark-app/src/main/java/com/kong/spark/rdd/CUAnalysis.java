@@ -7,6 +7,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
+import org.apache.spark.api.java.function.VoidFunction;
 import scala.Tuple2;
 
 import java.text.SimpleDateFormat;
@@ -19,7 +20,7 @@ public class CUAnalysis {
     public static void main(String[] args) {
         final SparkConf conf = new SparkConf().setAppName("CUAnalysis");
         JavaSparkContext jsc = new JavaSparkContext(conf);
-        JavaRDD<String> map = jsc.textFile("C:\\kong\\联通信令数据\\信息样本数据（20151019——20151025）.csv").map(new Function<String, String>() {
+        JavaRDD<String> map = jsc.textFile("/home/kongshaohong/data/20151019-20151025.csv").map(new Function<String, String>() {
             public String call(String s) throws Exception {
                 String[] splited = s.split(",");
                 String startTime = splited[2];
@@ -34,8 +35,12 @@ public class CUAnalysis {
                 String latitude = splited[4];
                 String areaCode = splited[5];
                 String userId = splited[0] + "," + splited[1] + "," + startTime;
-                if (userId.length() <= 16 || Double.valueOf(longitude) < 113.766667 || Double.valueOf(longitude) > 114.616667 || Double.valueOf(latitude) < 22.450000 || Double.valueOf(latitude) > 22.866667)
+                try {
+                    if (userId.length() <= 16 || Double.valueOf(longitude) < 113.766667 || Double.valueOf(longitude) > 114.616667 || Double.valueOf(latitude) < 22.450000 || Double.valueOf(latitude) > 22.866667)
+                        return null;
+                } catch (Exception e) {
                     return null;
+                }
                 return userId + "," + longitude + "," + latitude + "," + areaCode;
             }
         }).filter(new Function<String, Boolean>() {
@@ -57,23 +62,19 @@ public class CUAnalysis {
         });
 
         //总用户数
-        JavaPairRDD<String, Integer> userCount = map.mapToPair(new PairFunction<String, String, Integer>() {
+        long userCount = map.mapToPair(new PairFunction<String, String, Integer>() {
             public Tuple2<String, Integer> call(String s) throws Exception {
                 String[] split = s.split(",");
                 return new Tuple2<String, Integer>(split[0], 1);
             }
-        }).groupByKey().mapToPair(new PairFunction<Tuple2<String, Iterable<Integer>>, String, Integer>() {
-            public Tuple2<String, Integer> call(Tuple2<String, Iterable<Integer>> tuple2) throws Exception {
-                return new Tuple2<String, Integer>(tuple2._1, 1);
+        }).groupByKey().map(new Function<Tuple2<String,Iterable<Integer>>, String>() {
+            public String call(Tuple2<String, Iterable<Integer>> tuple2) throws Exception {
+                return tuple2._1;
             }
-        }).reduceByKey(new Function2<Integer, Integer, Integer>() {
-            public Integer call(Integer integer, Integer integer2) throws Exception {
-                return integer + integer2;
-            }
-        });
+        }).count();
 
         //总记录数
-        map.count();
+        long count = map.count();
 
         //构建用户时间
         JavaPairRDD<String, Long> pairRDD = map.mapToPair(new PairFunction<String, Long, String>() {
@@ -113,6 +114,15 @@ public class CUAnalysis {
                 return new Tuple2<String, Long>(stringIterableTuple2._1, avg);
             }
         });
+        
+        user.foreach(new VoidFunction<Tuple2<String, Integer>>() {
+            public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
+                System.out.println(stringIntegerTuple2);
+            }
+        });
+        
+        
 
+        jsc.stop();
     }
 }
