@@ -7,11 +7,9 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
-import org.apache.spark.api.java.function.VoidFunction;
 import scala.Tuple2;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Iterator;
 
 /**
