@@ -71,7 +71,7 @@ public class CUAnalysis {
                 String[] split = s.split(",");
                 return new Tuple2<String, Integer>(split[0], 1);
             }
-        }).groupByKey().map(new Function<Tuple2<String,Iterable<Integer>>, String>() {
+        }).groupByKey().map(new Function<Tuple2<String, Iterable<Integer>>, String>() {
             public String call(Tuple2<String, Iterable<Integer>> tuple2) throws Exception {
                 return tuple2._1;
             }
@@ -114,7 +114,7 @@ public class CUAnalysis {
                     }
                     count++;
                 }
-                avg = sum / (count-1);
+                avg = sum / (count - 1);
                 return new Tuple2<String, Long>(stringIterableTuple2._1, avg);
             }
         });
@@ -146,7 +146,7 @@ public class CUAnalysis {
                     String[] next = iterator.next().split(",");
                     for (int i = 0; i < 2; i++) {
                         if (top2[i] == null) {
-                            top2[i] = next[0] + "," + next[1]+","+next[2];
+                            top2[i] = next[0] + "," + next[1] + "," + next[2];
                             topLong[i] = Long.valueOf(next[2]);
                             break;
                         } else if (Long.valueOf(next[2]) > topLong[i]) {
@@ -154,7 +154,7 @@ public class CUAnalysis {
                                 top2[j] = top2[j - 1];
                                 topLong[j] = topLong[j - 1];
                             }
-                            top2[i] = next[0] + "," + next[1]+","+next[2];
+                            top2[i] = next[0] + "," + next[1] + "," + next[2];
                             topLong[i] = Long.valueOf(next[2]);
                             break;
                         }
@@ -163,18 +163,41 @@ public class CUAnalysis {
                 return new Tuple2<String, Iterable<String>>(stringIterableTuple2._1, Arrays.asList(top2));
             }
         });
-        
-        user.foreach(new VoidFunction<Tuple2<String, Integer>>() {
-            public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
-                System.out.println("用户记录数："+stringIntegerTuple2);
+
+        //计算重复数据
+        JavaPairRDD<String, Integer> userRe = map.mapToPair(new PairFunction<String, String, Integer>() {
+            public Tuple2<String, Integer> call(String s) throws Exception {
+                return new Tuple2<String, Integer>(s, 1);
+            }
+        }).reduceByKey(new Function2<Integer, Integer, Integer>() {
+            public Integer call(Integer integer, Integer integer2) throws Exception {
+                return integer + integer2;
             }
         });
 
-        System.out.println("总用户数："+userCount+";总记录数："+count);
+        //计算唯一标识重复数据
+        JavaPairRDD<String, Integer> userOnlyCount = map.mapToPair(new PairFunction<String, String, Integer>() {
+            public Tuple2<String, Integer> call(String s) throws Exception {
+                String[] split = s.split(",");
+                return new Tuple2<String, Integer>(split[0] + "," + split[1] + "," + split[2], 1);
+            }
+        }).reduceByKey(new Function2<Integer, Integer, Integer>() {
+            public Integer call(Integer integer, Integer integer2) throws Exception {
+                return integer + integer2;
+            }
+        });
+
+        user.foreach(new VoidFunction<Tuple2<String, Integer>>() {
+            public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
+                System.out.println("用户记录数：" + stringIntegerTuple2);
+            }
+        });
+
+        System.out.println("总用户数：" + userCount + ";总记录数：" + count);
 
         userAvgTime.foreach(new VoidFunction<Tuple2<String, Long>>() {
             public void call(Tuple2<String, Long> stringLongTuple2) throws Exception {
-                System.out.println("用户平均时间间隔："+stringLongTuple2);
+                System.out.println("用户平均时间间隔：" + stringLongTuple2);
             }
         });
 
@@ -183,11 +206,29 @@ public class CUAnalysis {
             public void call(Tuple2<String, Iterable<String>> stringIterableTuple2) throws Exception {
                 List<String> list = new ArrayList<String>();
                 Iterator<String> iterator = stringIterableTuple2._2.iterator();
-                while (iterator.hasNext()){
+                while (iterator.hasNext()) {
                     String next = iterator.next();
                     list.add(next);
                 }
-                System.out.println("用户："+stringIterableTuple2._1+","+"经纬度："+list);
+                System.out.println("用户：" + stringIterableTuple2._1 + "," + "经纬度：" + list);
+            }
+        });
+
+        userRe.foreach(new VoidFunction<Tuple2<String, Integer>>() {
+            public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
+                if (stringIntegerTuple2._2 > 1){
+                    System.out.println("数据重复列："+stringIntegerTuple2._1 + "，重复数："+stringIntegerTuple2._2);
+                }else
+                    System.out.println("无重复数据");
+            }
+        });
+
+        userOnlyCount.foreach(new VoidFunction<Tuple2<String, Integer>>() {
+            public void call(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
+                if (stringIntegerTuple2._2 > 1){
+                    System.out.println("数据重复列："+stringIntegerTuple2._1 + "，重复数："+stringIntegerTuple2._2);
+                }else
+                    System.out.println("无重复数据");
             }
         });
 
