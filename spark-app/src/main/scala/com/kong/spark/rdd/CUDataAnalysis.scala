@@ -63,9 +63,50 @@ object CUDataAnalysis {
         }
         count += 1
       }
-      avg = sum / count
+      avg = sum / (count - 1)
       (item._1, avg)
     })
+
+    //每个用户出现经纬度Top2
+    userData.map(item => {
+      val split = item.split(",")
+      (split(0) + "," + split(3) + "," + split(4), 1L)
+    }).reduceByKey(_ + _).map(item => {
+      val split = item._1.split(",")
+      (split(0), split(1) + "," + split(2) + "," + item._2)
+    }).groupByKey().map(item => {
+      val it = item._2.iterator
+      val top2: Array[String] = new Array[String](2)
+      val topLong: Array[Long] = new Array[Long](2)
+      while (it.hasNext) {
+        val next = it.next().split(",")
+        for (i <- 0 until 2) {
+          if (top2(i) == null) {
+            top2(i) = next(0) + "," + next(1) + "," + next(2)
+            topLong(i) = next(2).toLong
+          } else if (next(2).toLong > topLong(i)) {
+            var j: Int = 1
+            while (j > i) {
+              top2(j) = top2(j - 1)
+              topLong(j) = topLong(j - 1)
+              j -= 1
+            }
+            top2(i) = next(0) + "," + next(1) + "," + next(2)
+            topLong(i) = next(2).toLong
+          }
+        }
+      }
+      (item._1, top2)
+    })
+
+    //计算重复数据
+    userData.map(item => (item, 1)).reduceByKey(_ + _)
+
+    //计算唯一标识重复数据
+    userData.map(item => {
+      val split = item.split(",")
+      (split(0) + "," + split(1) + "," + split(2), 1)
+    }).reduceByKey(_ + _)
 
   }
 }

@@ -13,6 +13,7 @@ import org.apache.spark.mllib.util.MLUtils;
 import scala.Tuple2;
 
 /**
+ * 支持向量机
  * Created by lenovo on 2016/6/14.
  */
 public class SVM {

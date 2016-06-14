@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 使用sql进行多维度分析
+ * 使用sql对联通信令数据进行多维度分析
  * Created by lenovo on 2016/6/12.
  */
 public class CUAnalysisOfDF {
