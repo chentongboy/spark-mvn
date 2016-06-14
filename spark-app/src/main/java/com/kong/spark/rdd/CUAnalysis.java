@@ -29,7 +29,7 @@ public class CUAnalysis {
                 String[] splited = s.split(",");
                 String startTime = splited[2];
                 if (startTime.length() < 6) {
-                    StringBuffer sb = null;
+                    StringBuffer sb = new StringBuffer();
                     for (int i = 0; i < 6 - startTime.length(); i++) {
                         sb.append("0");
                     }
@@ -49,7 +49,7 @@ public class CUAnalysis {
             }
         }).filter(new Function<String, Boolean>() {
             public Boolean call(String s) throws Exception {
-                return !s.equals("") && s != null;
+                return s != null;
             }
         });
 
@@ -114,7 +114,7 @@ public class CUAnalysis {
                     }
                     count++;
                 }
-                avg = sum / count;
+                avg = sum / (count-1);
                 return new Tuple2<String, Long>(stringIterableTuple2._1, avg);
             }
         });
