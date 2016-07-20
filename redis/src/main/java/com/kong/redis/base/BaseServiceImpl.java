@@ -1,7 +1,7 @@
 package com.kong.redis.base;
 
-import com.kong.exception.RedisException;
-import com.kong.pool.JedisPooler;
+import com.kong.redis.exception.RedisException;
+import com.kong.redis.pool.JedisPooler;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 

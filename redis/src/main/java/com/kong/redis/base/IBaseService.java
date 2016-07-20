@@ -1,6 +1,6 @@
 package com.kong.redis.base;
 
-import com.kong.exception.RedisException;
+import com.kong.redis.exception.RedisException;
 
 import java.io.Serializable;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.kong.redis.core;
 
-import com.kong.exception.CacheException;
+import com.kong.redis.exception.CacheException;
 
 import java.io.Serializable;
 
