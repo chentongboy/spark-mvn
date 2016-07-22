@@ -6,6 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * key注册器
  * Created by kong on 2016/4/30.
  */
 @Target(ElementType.TYPE)

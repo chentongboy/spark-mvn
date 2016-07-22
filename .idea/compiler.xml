@@ -33,7 +33,7 @@
       <module name="hadoop-app" target="1.5" />
       <module name="hive" target="1.5" />
       <module name="other" target="1.5" />
-      <module name="redis" target="1.5" />
+      <module name="redis" target="1.6" />
       <module name="spark-app" target="1.5" />
     </bytecodeTargetLevel>
   </component>

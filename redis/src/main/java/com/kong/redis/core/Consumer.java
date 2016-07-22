@@ -1,8 +1,7 @@
 package com.kong.redis.core;
 
-import com.kong.base.BaseServiceImpl;
-import com.kong.exception.CacheException;
-import com.kong.exception.RedisException;
+import com.kong.redis.base.BaseServiceImpl;
+import com.kong.redis.exception.CacheException;
 
 import java.util.ArrayList;
 import java.util.List;
