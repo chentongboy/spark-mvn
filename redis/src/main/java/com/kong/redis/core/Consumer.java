@@ -29,6 +29,7 @@ public class Consumer extends BaseServiceImpl<AyscQueue> {
 
     /**
      * 取得cache对象执行业务逻辑（由popAyscQueue()实际指定）
+     *
      * @return
      * @throws Exception
      */
@@ -54,7 +55,7 @@ public class Consumer extends BaseServiceImpl<AyscQueue> {
                         if (threadNeedStop)
                             break;
                         try {
-                            Thread.sleep(sleepTime, 1000);
+                            Thread.sleep(sleepTime * 1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -64,6 +65,11 @@ public class Consumer extends BaseServiceImpl<AyscQueue> {
         });
         queueTaskThread.start();
         return true;
+    }
+
+    public static void main(String[] args) throws Exception {
+        Consumer consumer = new Consumer();
+        consumer.run();
     }
 
 }
